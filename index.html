@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Aerial Routine Sketchbook</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			/* CSS RESET & VARS */
+			*, *::before, *::after {
+			  box-sizing: border-box;
+			  margin: 0;
+			  padding: 0;
+			}
+
+			:root {
+			  --bg-dark: #121214;
+			  --panel-bg: #1a1a1e;
+			  --card-bg: #24242a;
+			  --card-hover: #2d2d34;
+			  --border-color: #33333d;
+			  --accent-color: #6366f1;
+			  --accent-hover: #4f46e5;
+			  --text-main: #f3f4f6;
+			  --text-muted: #9ca3af;
+			  --text-dim: #6b7280;
+			  --input-bg: #121214;
+			  --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+			}
+
+			body {
+			  background-color: var(--bg-dark);
+			  color: var(--text-main);
+			  font-family: var(--font-stack);
+			  line-height: 1.5;
+			  min-height: 100vh;
+			  display: flex;
+			  flex-direction: column;
+			  -webkit-font-smoothing: antialiased;
+			}
+
+			/* WEBKIT / IPAD HARD FIX FOR SVGS */
+			svg {
+			  display: inline-block;
+			  vertical-align: middle;
+			  flex-shrink: 0;
+			  max-width: 18px;
+			  max-height: 18px;
+			}
+
+			/* HEADER & TOP BAR */
+			header {
+			  background-color: var(--panel-bg);
+			  border-bottom: 1px solid var(--border-color);
+			  padding: 1rem 1.5rem;
+			  display: flex;
+			  flex-wrap: wrap;
+			  justify-content: space-between;
+			  align-items: center;
+			  gap: 1rem;
+			}
+
+			.title-area {
+			  display: flex;
+			  align-items: center;
+			  gap: 0.75rem;
+			}
+
+			.app-title {
+			  font-size: 1.1rem;
+			  font-weight: 700;
+			  letter-spacing: -0.02em;
+			  color: var(--text-main);
+			  white-space: nowrap;
+			}
+
+			.routine-title-input {
+			  background: transparent;
+			  border: none;
+			  border-bottom: 1px solid transparent;
+			  color: var(--accent-color);
+			  font-family: var(--font-stack);
+			  font-size: 1.1rem;
+			  font-weight: 600;
+			  padding: 0.2rem 0.5rem;
+			  border-radius: 4px;
+			  transition: all 0.2s;
+			}
+
+			.routine-title-input:hover, .routine-title-input:focus {
+			  background: var(--input-bg);
+			  border-bottom-color: var(--accent-color);
+			  outline: none;
+			}
+
+			.actions-area {
+			  display: flex;
+			  align-items: center;
+			  gap: 0.5rem;
+			  flex-wrap: wrap;
+			}
+
+			.btn {
+			  background: var(--card-bg);
+			  color: var(--text-main);
+			  border: 1px solid var(--border-color);
+			  padding: 0.45rem 0.85rem;
+			  border-radius: 6px;
+			  font-family: var(--font-stack);
+			  font-size: 0.825rem;
+			  font-weight: 500;
+			  cursor: pointer;
+			  display: inline-flex;
+			  align-items: center;
+			  gap: 0.4rem;
+			  transition: all 0.2s;
+			  white-space: nowrap;
+			}
+
+			.btn:hover {
+			  background: var(--card-hover);
+			  border-color: #4b5563;
+			}
+
+			.btn-primary {
+			  background: var(--accent-color);
+			  border-color: var(--accent-color);
+			  color: #fff;
+			}
+
+			.btn-primary:hover {
+			  background: var(--accent-hover);
+			  border-color: var(--accent-hover);
+			}
+
+			/* NAVIGATION TABS */
+			nav.tabs-bar {
+			  background-color: var(--panel-bg);
+			  border-bottom: 1px solid var(--border-color);
+			  padding: 0 1.5rem;
+			  display: flex;
+			  gap: 0.25rem;
+			  overflow-x: auto;
+			  -webkit-overflow-scrolling: touch;
+			}
+
+			.tab-btn {
+			  background: transparent;
+			  border: none;
+			  color: var(--text-muted);
+			  padding: 0.75rem 1rem;
+			  font-family: var(--font-stack);
+			  font-size: 0.875rem;
+			  font-weight: 500;
+			  cursor: pointer;
+			  border-bottom: 2px solid transparent;
+			  transition: all 0.2s;
+			  display: inline-flex;
+			  align-items: center;
+			  gap: 0.5rem;
+			  white-space: nowrap;
+			}
+
+			.tab-btn:hover {
+			  color: var(--text-main);
+			}
+
+			.tab-btn.active {
+			  color: var(--accent-color);
+			  border-bottom-color: var(--accent-color);
+			}
+
+			/* MAIN CONTAINER */
+			main.workspace {
+			  flex: 1;
+			  padding: 2rem 1.5rem;
+			  max-width: 1200px;
+			  width: 100%;
+			  margin: 0 auto;
+			}
+
+			.tab-content {
+			  display: none;
+			}
+
+			.tab-content.active {
+			  display: block;
+			}
+
+			/* FORM STYLING */
+			.section-header {
+			  margin-bottom: 1.5rem;
+			}
+
+			.section-title {
+			  font-size: 1.25rem;
+			  font-weight: 600;
+			  color: var(--text-main);
+			  margin-bottom: 0.25rem;
+			}
+
+			.section-desc {
+			  font-size: 0.875rem;
+			  color: var(--text-muted);
+			}
+
+			.grid-2 {
+			  display: grid;
+			  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			  gap: 1.25rem;
+			  margin-bottom: 1.25rem;
+			}
+
+			.form-group {
+			  display: flex;
+			  flex-direction: column;
+			  gap: 0.5rem;
+			}
+
+			.form-group label {
+			  font-size: 0.8rem;
+			  font-weight: 600;
+			  text-transform: uppercase;
+			  letter-spacing: 0.05em;
+			  color: var(--text-muted);
+			}
+
+			.input-field, .textarea-field, .select-field {
+			  background: var(--input-bg);
+			  border: 1px solid var(--border-color);
+			  border-radius: 6px;
+			  color: var(--text-main);
+			  font-family: var(--font-stack);
+			  font-size: 0.9rem;
+			  padding: 0.6rem 0.8rem;
+			  transition: border-color 0.2s;
+			  width: 100%;
+			}
+
+			.input-field:focus, .textarea-field:focus, .select-field:focus {
+			  border-color: var(--accent-color);
+			  outline: none;
+			}
+
+			.textarea-field {
+			  min-height: 100px;
+			  resize: vertical;
+			}
+
+			/* IDEA DECK / CARD SYSTEM */
+			.deck-controls {
+			  display: flex;
+			  justify-content: space-between;
+			  align-items: center;
+			  margin-bottom: 1.5rem;
+			  gap: 1rem;
+			  flex-wrap: wrap;
+			}
+
+			.card-creator {
+			  background: var(--panel-bg);
+			  border: 1px solid var(--border-color);
+			  border-radius: 8px;
+			  padding: 1rem;
+			  margin-bottom: 1.5rem;
+			  display: flex;
+			  flex-direction: column;
+			  gap: 0.75rem;
+			}
+
+			.cards-grid {
+			  display: grid;
+			  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+			  gap: 1rem;
+			  min-height: 120px;
+			}
+
+			.idea-card {
+			  background: var(--card-bg);
+			  border: 1px solid var(--border-color);
+			  border-radius: 6px;
+			  padding: 0.85rem;
+			  cursor: grab;
+			  position: relative;
+			  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+			  display: flex;
+			  flex-direction: column;
+			  gap: 0.5rem;
+			}
+
+			.idea-card:active {
+			  cursor: grabbing;
+			}
+
+			.idea-card:hover {
+			  border-color: var(--accent-color);
+			  transform: translateY(-2px);
+			  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+			}
+
+			.card-header-line {
+			  display: flex;
+			  justify-content: space-between;
+			  align-items: flex-start;
+			  gap: 0.5rem;
+			}
+
+			.card-category {
+			  font-size: 0.7rem;
+			  font-weight: 700;
+			  text-transform: uppercase;
+			  letter-spacing: 0.05em;
+			  padding: 0.15rem 0.4rem;
+			  border-radius: 4px;
+			  background: var(--panel-bg);
+			  color: var(--accent-color);
+			  border: 1px solid rgba(99, 102, 241, 0.2);
+			}
+
+			.card-title {
+			  font-size: 0.95rem;
+			  font-weight: 600;
+			  color: var(--text-main);
+			}
+
+			.card-body {
+			  font-size: 0.825rem;
+			  color: var(--text-muted);
+			  white-space: pre-wrap;
+			}
+
+			.card-actions {
+			  display: flex;
+			  justify-content: flex-end;
+			  gap: 0.25rem;
+			  margin-top: auto;
+			  padding-top: 0.5rem;
+			}
+
+			.icon-btn {
+			  background: transparent;
+			  border: none;
+			  color: var(--text-dim);
+			  cursor: pointer;
+			  padding: 0.2rem;
+			  border-radius: 4px;
+			  transition: color 0.2s;
+			}
+
+			.icon-btn:hover {
+			  color: #ef4444;
+			}
+
+			/* TIMELINE / SEQUENCE MAP */
+			.timeline-container {
+			  display: flex;
+			  flex-direction: column;
+			  gap: 1.5rem;
+			}
+
+			.timeline-block {
+			  background: var(--panel-bg);
+			  border: 1px solid var(--border-color);
+			  border-radius: 8px;
+			  padding: 1.25rem;
+			}
+
+			.timeline-block-header {
+			  display: flex;
+			  justify-content: space-between;
+			  align-items: center;
+			  margin-bottom: 1rem;
+			  padding-bottom: 0.5rem;
+			  border-bottom: 1px solid var(--border-color);
+			}
+
+			.phase-title {
+			  font-size: 1rem;
+			  font-weight: 600;
+			  color: var(--accent-color);
+			}
+
+			.drop-zone {
+			  min-height: 80px;
+			  background: var(--input-bg);
+			  border: 2px dashed var(--border-color);
+			  border-radius: 6px;
+			  padding: 0.75rem;
+			  display: flex;
+			  flex-direction: column;
+			  gap: 0.75rem;
+			  transition: background-color 0.2s, border-color 0.2s;
+			}
+
+			.drop-zone.drag-over {
+			  background: rgba(99, 102, 241, 0.08);
+			  border-color: var(--accent-color);
+			}
+
+			.timestamp-input {
+			  background: var(--panel-bg);
+			  border: 1px solid var(--border-color);
+			  border-radius: 4px;
+			  color: var(--accent-color);
+			  font-family: monospace;
+			  font-size: 0.8rem;
+			  padding: 0.2rem 0.4rem;
+			  width: 70px;
+			}
+
+			.drag-handle {
+			  color: var(--text-dim);
+			  cursor: grab;
+			  margin-right: 0.25rem;
+			}
+
+			/* PRINT / EXPORT STYLING */
+			@media print {
+			  body {
+			    background: #fff !important;
+			    color: #000 !important;
+			  }
+			  header, nav.tabs-bar, .actions-area, .deck-controls, .card-creator, .icon-btn {
+			    display: none !important;
+			  }
+			  main.workspace {
+			    padding: 0 !important;
+			    max-width: 100% !important;
+			  }
+			  .tab-content {
+			    display: block !important;
+			    page-break-after: always;
+			    margin-bottom: 2rem;
+			  }
+			  .timeline-block, .idea-card, .input-field, .textarea-field {
+			    background: #fff !important;
+			    color: #000 !important;
+			    border: 1px solid #ccc !important;
+			  }
+			  .section-title, .phase-title, .card-title {
+			    color: #000 !important;
+			  }
+			}
+		</style>
+	</head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<div class="title-area">
+				<svg
+					width="18"
+					height="18"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path
+						d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+					/>
+				</svg>
+				<span class="app-title">Aerial Sketchbook</span>
+				<span style="color: var(--border-color)">|</span>
+				<input
+					type="text"
+					id="routineTitle"
+					class="routine-title-input"
+					value="Untitled Routine"
+					placeholder="Routine Name..."
+				/>
+			</div>
+			<div class="actions-area">
+				<label class="btn">
+					<svg
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path
+							d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"
+						/>
+					</svg>
+					Import JSON
+					<input
+						type="file"
+						id="importFile"
+						accept=".json"
+						style="display:none;"
+						onchange="importProject(event)"
+					/>
+				</label>
+				<button class="btn" onclick="exportProject()">
+					<svg
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path
+							d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"
+						/>
+					</svg>
+					Export JSON
+				</button>
+				<button class="btn btn-primary" onclick="window.print()">
+					<svg
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path
+							d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"
+						/>
+					</svg>
+					Print / PDF
+				</button>
+			</div>
+		</header>
+
+		<!-- NAVIGATION TABS -->
+		<nav class="tabs-bar">
+			<button class="tab-btn active" onclick="switchTab('track')">
+				<svg
+					width="16"
+					height="16"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path
+						d="M9 18V5l12-2v13B9 18zm0 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm12-2a3 3 0 1 0-6 0 3 3 0 0 0 6 0z"
+					/>
+				</svg>
+				Track & Hooks
+			</button>
+			<button class="tab-btn" onclick="switchTab('aesthetic')">
+				<svg
+					width="16"
+					height="16"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path d="M12 2a10 10 0 1 0 10 10H12V2z" />
+				</svg>
+				Aesthetic & Vibe
+			</button>
+			<button class="tab-btn" onclick="switchTab('deck')">
+				<svg
+					width="16"
+					height="16"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<rect x="3" y="3" width="18" height="18" rx="2" />
+					<path d="M3 9h18M9 21V9" />
+				</svg>
+				The Idea Deck
+			</button>
+			<button class="tab-btn" onclick="switchTab('timeline')">
+				<svg
+					width="16"
+					height="16"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+				>
+					<path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+				</svg>
+				Sequence Map
+			</button>
+		</nav>
+
+		<!-- WORKSPACE MAIN CONTENT -->
+		<main class="workspace">
+			<!-- TAB 1: TRACK & HOOKS -->
+			<section id="tab-track" class="tab-content active">
+				<div class="section-header">
+					<h2 class="section-title">Track Information</h2>
+					<p class="section-desc">
+						Establish the musical foundation and core thematic spark
+						for your routine.
+					</p>
+				</div>
+
+				<div class="grid-2">
+					<div class="form-group">
+						<label>Song Title</label>
+						<input
+							type="text"
+							id="songTitle"
+							class="input-field"
+							placeholder="e.g. Sumerigisa"
+						/>
+					</div>
+					<div class="form-group">
+						<label>Artist / Composer</label>
+						<input
+							type="text"
+							id="songArtist"
+							class="input-field"
+							placeholder="e.g. Enya"
+						/>
+					</div>
+				</div>
+
+				<div class="grid-2">
+					<div class="form-group">
+						<label>Duration</label>
+						<input
+							type="text"
+							id="songDuration"
+							class="input-field"
+							placeholder="03:45"
+						/>
+					</div>
+					<div class="form-group">
+						<label>Apparatus / Rig Setup</label>
+						<input
+							type="text"
+							id="apparatusSetup"
+							class="input-field"
+							placeholder="e.g. Hammock, Low-Stretch Fabric, 18ft Rig"
+						/>
+					</div>
+				</div>
+
+				<div class="form-group" style="margin-top: 1rem;">
+					<label>The Vibe / Narrative Spark</label>
+					<textarea
+						id="narrativeSpark"
+						class="textarea-field"
+						placeholder="What is the emotional tone or core visual image when listening to this track?"
+					></textarea>
+				</div>
+			</section>
+
+			<!-- TAB 2: AESTHETIC & VIBE -->
+			<section id="tab-aesthetic" class="tab-content">
+				<div class="section-header">
+					<h2 class="section-title">Aesthetic & Styling</h2>
+					<p class="section-desc">
+						Design the visual palette, movement qualities, and
+						costume direction.
+					</p>
+				</div>
+
+				<div class="grid-2">
+					<div class="form-group">
+						<label>Movement Texture & Energy</label>
+						<textarea
+							id="movementTexture"
+							class="textarea-field"
+							placeholder="e.g., Heavy weight, melting transitions, sudden sharp accent drops..."
+						></textarea>
+					</div>
+					<div class="form-group">
+						<label>Arm & Hand Lines / Focal Points</label>
+						<textarea
+							id="armStyling"
+							class="textarea-field"
+							placeholder="e.g., Soft continuous reach, flexed wrists, gaze directly at audience..."
+						></textarea>
+					</div>
+				</div>
+
+				<div class="grid-2">
+					<div class="form-group">
+						<label>Costume Silhouette & Materials</label>
+						<textarea
+							id="costumeNotes"
+							class="textarea-field"
+							placeholder="e.g., Velvet, deep purple/violet tone, sleeveless for friction grip..."
+						></textarea>
+					</div>
+					<div class="form-group">
+						<label>Hair, Makeup & Lighting Concept</label>
+						<textarea
+							id="visualNotes"
+							class="textarea-field"
+							placeholder="e.g., Sleek high bun, moody side-lighting, cold blue stage wash..."
+						></textarea>
+					</div>
+				</div>
+			</section>
+
+			<!-- TAB 3: THE IDEA DECK -->
+			<section id="tab-deck" class="tab-content">
+				<div class="section-header">
+					<h2 class="section-title">The Idea Deck</h2>
+					<p class="section-desc">
+						Brainstorm modular skills, shapes, and styling cues
+						before putting them into sequence.
+					</p>
+				</div>
+
+				<div class="card-creator">
+					<div class="grid-2">
+						<input
+							type="text"
+							id="newCardTitle"
+							class="input-field"
+							placeholder="Idea Title (e.g. Belay Entry, Fast Spin Combo)"
+						/>
+						<select id="newCardCategory" class="select-field">
+							<option value="Skill / Trick">Skill / Trick</option>
+							<option value="Transition">Transition</option>
+							<option value="Styling / Pose">
+								Styling / Pose
+							</option>
+							<option value="Floorwork">Floorwork</option>
+							<option value="Dynamic Drop">Dynamic Drop</option>
+						</select>
+					</div>
+					<textarea
+						id="newCardBody"
+						class="textarea-field"
+						style="min-height:60px;"
+						placeholder="Details, wrap setup, or movement cue..."
+					></textarea>
+					<div style="text-align: right;">
+						<button class="btn btn-primary" onclick="addIdeaCard()">
+							+ Add to Pool
+						</button>
+					</div>
+				</div>
+
+				<div class="deck-controls">
+					<span style="font-size:0.85rem; color:var(--text-muted);"
+						>Card Pool (<span id="cardCount">0</span>)</span
+					>
+				</div>
+
+				<div
+					id="ideaPool"
+					class="cards-grid"
+					ondragover="allowDrop(event)"
+					ondrop="dropToPool(event)"
+				>
+					<!-- Cards dynamically inserted here -->
+				</div>
+			</section>
+
+			<!-- TAB 4: SEQUENCE MAP / TIMELINE -->
+			<section id="tab-timeline" class="tab-content">
+				<div class="section-header">
+					<h2 class="section-title">Sequence Map</h2>
+					<p class="section-desc">
+						Drag card ideas directly into performance blocks and
+						assign timecodes.
+					</p>
+				</div>
+
+				<div class="timeline-container">
+					<!-- Intro Block -->
+					<div class="timeline-block">
+						<div class="timeline-block-header">
+							<span class="phase-title"
+								>1. Introduction & Mounting</span
+							>
+							<span
+								style="font-size:0.8rem; color:var(--text-dim);"
+								>~ 00:00 - 00:45</span
+							>
+						</div>
+						<div
+							class="drop-zone"
+							id="zone-intro"
+							ondragover="allowDrop(event)"
+							ondragenter="dragEnter(event)"
+							ondragleave="dragLeave(event)"
+							ondrop="dropToZone(event, 'intro')"
+						></div>
+					</div>
+
+					<!-- Build Block -->
+					<div class="timeline-block">
+						<div class="timeline-block-header">
+							<span class="phase-title"
+								>2. Main Ascend & Development</span
+							>
+							<span
+								style="font-size:0.8rem; color:var(--text-dim);"
+								>~ 00:45 - 02:00</span
+							>
+						</div>
+						<div
+							class="drop-zone"
+							id="zone-build"
+							ondragover="allowDrop(event)"
+							ondragenter="dragEnter(event)"
+							ondragleave="dragLeave(event)"
+							ondrop="dropToZone(event, 'build')"
+						></div>
+					</div>
+
+					<!-- Climax Block -->
+					<div class="timeline-block">
+						<div class="timeline-block-header">
+							<span class="phase-title"
+								>3. Climax & Dynamic Hits</span
+							>
+							<span
+								style="font-size:0.8rem; color:var(--text-dim);"
+								>~ 02:00 - 03:00</span
+							>
+						</div>
+						<div
+							class="drop-zone"
+							id="zone-climax"
+							ondragover="allowDrop(event)"
+							ondragenter="dragEnter(event)"
+							ondragleave="dragLeave(event)"
+							ondrop="dropToZone(event, 'climax')"
+						></div>
+					</div>
+
+					<!-- Outro Block -->
+					<div class="timeline-block">
+						<div class="timeline-block-header">
+							<span class="phase-title"
+								>4. Descent & Landing / Outro</span
+							>
+							<span
+								style="font-size:0.8rem; color:var(--text-dim);"
+								>~ 03:00 +</span
+							>
+						</div>
+						<div
+							class="drop-zone"
+							id="zone-outro"
+							ondragover="allowDrop(event)"
+							ondragenter="dragEnter(event)"
+							ondragleave="dragLeave(event)"
+							ondrop="dropToZone(event, 'outro')"
+						></div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<script>
+			// APP STATE
+			let projectData = {
+			  title: "Untitled Routine",
+			  track: { title: "", artist: "", duration: "", setup: "", spark: "" },
+			  aesthetic: { texture: "", arms: "", costume: "", visual: "" },
+			  cards: [
+			    { id: "c1", title: "Low-Flow Opening", category: "Floorwork", body: "Start seated under rig, slow wrist circles", zone: "intro", time: "00:10" },
+			    { id: "c2", title: "Inverted Straddle Climb", category: "Transition", body: "Straight leg invert into inversion climb", zone: "build", time: "00:50" },
+			    { id: "c3", title: "High Velocity Spin", category: "Dynamic Drop", body: "Release into continuous fast rotation", zone: "climax", time: "02:15" }
+			  ]
+			};
+
+			// INITIALIZATION
+			document.addEventListener("DOMContentLoaded", () => {
+			  renderCards();
+			  setupAutoSave();
+			});
+
+			// TAB SWITCHING
+			function switchTab(tabId) {
+			  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+			  document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+			  event.currentTarget.classList.add('active');
+			  document.getElementById(`tab-${tabId}`).classList.add('active');
+			}
+
+			// RENDER CARDS IN POOL AND TIMELINE
+			function renderCards() {
+			  const poolContainer = document.getElementById("ideaPool");
+			  const zones = {
+			    intro: document.getElementById("zone-intro"),
+			    build: document.getElementById("zone-build"),
+			    climax: document.getElementById("zone-climax"),
+			    outro: document.getElementById("zone-outro")
+			  };
+
+			  // Clear zones
+			  poolContainer.innerHTML = "";
+			  Object.values(zones).forEach(z => z.innerHTML = "");
+
+			  let poolCount = 0;
+
+			  projectData.cards.forEach(card => {
+			    const cardEl = createCardElement(card);
+			    if (!card.zone || card.zone === "pool") {
+			      poolContainer.appendChild(cardEl);
+			      poolCount++;
+			    } else if (zones[card.zone]) {
+			      zones[card.zone].appendChild(cardEl);
+			    }
+			  });
+
+			  document.getElementById("cardCount").innerText = poolCount;
+			}
+
+			function createCardElement(card) {
+			  const cardDiv = document.createElement("div");
+			  cardDiv.className = "idea-card";
+			  cardDiv.draggable = true;
+			  cardDiv.id = `card-${card.id}`;
+			  cardDiv.ondragstart = (e) => dragStart(e, card.id);
+
+			  const isTimeline = card.zone && card.zone !== "pool";
+
+			  cardDiv.innerHTML = `
+			    <div class="card-header-line">
+			      <span class="card-category">${escapeHtml(card.category)}</span>
+			      ${isTimeline ? `<input type="text" class="timestamp-input" value="${escapeHtml(card.time \vert{}\vert{} '00:00')}" placeholder="00:00" onchange="updateCardTime('${card.id}', this.value)">` : ''}
+			    </div>
+			    <div class="card-title">${escapeHtml(card.title)}</div>
+			    ${card.body ? `<div class="card-body">${escapeHtml(card.body)}</div>` : ''}
+			    <div class="card-actions">
+			      <button class="icon-btn" onclick="deleteCard('${card.id}')">
+			        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+			      </button>
+			    </div>
+			  `;
+
+			  return cardDiv;
+			}
+
+			// DRAG AND DROP HANDLERS
+			function dragStart(e, cardId) {
+			  e.dataTransfer.setData("text/plain", cardId);
+			}
+
+			function allowDrop(e) {
+			  e.preventDefault();
+			}
+
+			function dragEnter(e) {
+			  e.currentTarget.classList.add("drag-over");
+			}
+
+			function dragLeave(e) {
+			  e.currentTarget.classList.remove("drag-over");
+			}
+
+			function dropToZone(e, zoneName) {
+			  e.preventDefault();
+			  e.currentTarget.classList.remove("drag-over");
+			  const cardId = e.dataTransfer.getData("text/plain");
+
+			  const card = projectData.cards.find(c => c.id === cardId);
+			  if (card) {
+			    card.zone = zoneName;
+			    renderCards();
+			  }
+			}
+
+			function dropToPool(e) {
+			  e.preventDefault();
+			  const cardId = e.dataTransfer.getData("text/plain");
+			  const card = projectData.cards.find(c => c.id === cardId);
+			  if (card) {
+			    card.zone = "pool";
+			    renderCards();
+			  }
+			}
+
+			// CARD CRUD
+			function addIdeaCard() {
+			  const title = document.getElementById("newCardTitle").value.trim();
+			  const category = document.getElementById("newCardCategory").value;
+			  const body = document.getElementById("newCardBody").value.trim();
+
+			  if (!title) return;
+
+			  const newCard = {
+			    id: "c_" + Date.now(),
+			    title,
+			    category,
+			    body,
+			    zone: "pool",
+			    time: ""
+			  };
+
+			  projectData.cards.push(newCard);
+			  document.getElementById("newCardTitle").value = "";
+			  document.getElementById("newCardBody").value = "";
+			  renderCards();
+			}
+
+			function updateCardTime(cardId, timeValue) {
+			  const card = projectData.cards.find(c => c.id === cardId);
+			  if (card) {
+			    card.time = timeValue;
+			  }
+			}
+
+			function deleteCard(cardId) {
+			  projectData.cards = projectData.cards.filter(c => c.id !== cardId);
+			  renderCards();
+			}
+
+			// SAVE & EXPORT / IMPORT
+			function syncFormData() {
+			  projectData.title = document.getElementById("routineTitle").value;
+			  projectData.track = {
+			    title: document.getElementById("songTitle").value,
+			    artist: document.getElementById("songArtist").value,
+			    duration: document.getElementById("songDuration").value,
+			    setup: document.getElementById("apparatusSetup").value,
+			    spark: document.getElementById("narrativeSpark").value
+			  };
+			  projectData.aesthetic = {
+			    texture: document.getElementById("movementTexture").value,
+			    arms: document.getElementById("armStyling").value,
+			    costume: document.getElementById("costumeNotes").value,
+			    visual: document.getElementById("visualNotes").value
+			  };
+			}
+
+			function exportProject() {
+			  syncFormData();
+			  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(projectData, null, 2));
+			  const downloadAnchor = document.createElement("a");
+			  downloadAnchor.setAttribute("href", dataStr);
+			  downloadAnchor.setAttribute("download", `${projectData.title.replace(/\s+/g, '_')}_sketchbook.json`);
+			  document.body.appendChild(downloadAnchor);
+			  downloadAnchor.click();
+			  downloadAnchor.remove();
+			}
+
+			function importProject(event) {
+			  const fileReader = new FileReader();
+			  fileReader.onload = (e) => {
+			    try {
+			      projectData = JSON.parse(e.target.result);
+			      document.getElementById("routineTitle").value = projectData.title || "";
+			      document.getElementById("songTitle").value = projectData.track?.title || "";
+			      document.getElementById("songArtist").value = projectData.track?.artist || "";
+			      document.getElementById("songDuration").value = projectData.track?.duration || "";
+			      document.getElementById("apparatusSetup").value = projectData.track?.setup || "";
+			      document.getElementById("narrativeSpark").value = projectData.track?.spark || "";
+
+			      document.getElementById("movementTexture").value = projectData.aesthetic?.texture || "";
+			      document.getElementById("armStyling").value = projectData.aesthetic?.arms || "";
+			      document.getElementById("costumeNotes").value = projectData.aesthetic?.costume || "";
+			      document.getElementById("visualNotes").value = projectData.aesthetic?.visual || "";
+
+			      renderCards();
+			    } catch (err) {
+			      alert("Error parsing JSON file.");
+			    }
+			  };
+			  if(event.target.files[0]) fileReader.readAsText(event.target.files[0]);
+			}
+
+			function setupAutoSave() {
+			  document.querySelectorAll("input, textarea").forEach(el => {
+			    el.addEventListener("input", syncFormData);
+			  });
+			}
+
+			function escapeHtml(str) {
+			  return (str || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+			}
+		</script>
+	</body>
+</html>
