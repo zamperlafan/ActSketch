@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Aerial Routine Sketchbook</title>
+		<title>ACTSKETCH</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -419,263 +419,13 @@
 			  margin-right: 0.25rem;
 			}
 
-			/* DRAG & DROP EXTRAS */
-			.idea-card.dragging {
-			  opacity: 0.4;
-			}
-
-			.card-actions {
-			  justify-content: space-between;
-			  align-items: center;
-			}
-
-			.move-select {
-			  background: var(--input-bg);
-			  border: 1px solid var(--border-color);
-			  border-radius: 4px;
-			  color: var(--text-muted);
-			  font-family: var(--font-stack);
-			  font-size: 0.75rem;
-			  padding: 0.2rem 0.4rem;
-			  max-width: 60%;
-			}
-
-			.cards-grid.drag-over {
-			  outline: 2px dashed var(--accent-color);
-			  outline-offset: 6px;
-			  background: rgba(99, 102, 241, 0.05);
-			}
-
-			.tray-section {
-			  margin-bottom: 1.5rem;
-			}
-
-			.pool-tray {
-			  display: flex;
-			  gap: 1rem;
-			  overflow-x: auto;
-			  min-height: 80px;
-			  padding: 0.75rem;
-			  background: var(--input-bg);
-			  border: 2px dashed var(--border-color);
-			  border-radius: 6px;
-			  transition: background-color 0.2s, border-color 0.2s;
-			}
-
-			.pool-tray .idea-card {
-			  flex: 0 0 240px;
-			}
-
-			.pool-tray.drag-over {
-			  background: rgba(99, 102, 241, 0.08);
-			  border-color: var(--accent-color);
-			}
-
-			.pool-tray:empty::before,
-			.drop-zone:empty::before {
-			  content: "Drop ideas here";
-			  color: var(--text-dim);
-			  font-size: 0.8rem;
-			  align-self: center;
-			  margin: auto;
-			}
-
-			/* SAVE STATUS */
-			.save-status {
-			  font-size: 0.75rem;
-			  color: var(--text-dim);
-			  white-space: nowrap;
-			  margin-right: 0.25rem;
-			}
-
-			.save-status.warn {
-			  color: #f59e0b;
-			  white-space: normal;
-			  max-width: 260px;
-			  line-height: 1.3;
-			}
-
-			/* DURATION, DIFFICULTY & SUMMARY */
-			.card-creator .grid-2 {
-			  margin-bottom: 0;
-			}
-
-			.card-time {
-			  display: flex;
-			  align-items: center;
-			  gap: 0.4rem;
-			}
-
-			.card-start {
-			  font-family: monospace;
-			  font-size: 0.75rem;
-			  color: var(--text-dim);
-			  white-space: nowrap;
-			}
-
-			.timestamp-input.invalid, .input-field.invalid {
-			  border-color: #ef4444;
-			}
-
-			.idea-card.drop-before {
-			  border-top: 3px solid var(--accent-color);
-			}
-
-			.idea-card.drop-after {
-			  border-bottom: 3px solid var(--accent-color);
-			}
-
-			.diff-row {
-			  display: flex;
-			  align-items: center;
-			  gap: 0.6rem;
-			}
-
-			.diff-dots {
-			  display: flex;
-			  gap: 0.3rem;
-			}
-
-			.diff-dot {
-			  width: 16px;
-			  height: 16px;
-			  border-radius: 50%;
-			  border: 1.5px solid var(--border-color);
-			  background: transparent;
-			  padding: 0;
-			  cursor: pointer;
-			  transition: border-color 0.15s, transform 0.15s;
-			  -webkit-print-color-adjust: exact;
-			  print-color-adjust: exact;
-			}
-
-			.diff-dot:hover {
-			  border-color: var(--text-muted);
-			  transform: scale(1.15);
-			}
-
-			.diff-dot.on {
-			  border-color: transparent;
-			}
-
-			.diff-label {
-			  font-size: 0.72rem;
-			  color: var(--text-muted);
-			}
-
-			.routine-summary {
-			  margin-bottom: 1.5rem;
-			}
-
-			.summary-grid {
-			  display: grid;
-			  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-			  gap: 0.75rem;
-			  margin-bottom: 1rem;
-			}
-
-			.summary-tile {
-			  background: var(--panel-bg);
-			  border: 1px solid var(--border-color);
-			  border-radius: 8px;
-			  padding: 0.85rem 1rem;
-			}
-
-			.tile-label {
-			  font-size: 0.7rem;
-			  font-weight: 600;
-			  text-transform: uppercase;
-			  letter-spacing: 0.05em;
-			  color: var(--text-muted);
-			}
-
-			.tile-value {
-			  font-size: 1.35rem;
-			  font-weight: 700;
-			  line-height: 1.3;
-			  margin: 0.15rem 0;
-			}
-
-			.tile-sub {
-			  font-size: 0.75rem;
-			  color: var(--text-dim);
-			}
-
-			.strip-title {
-			  font-size: 0.8rem;
-			  font-weight: 600;
-			  color: var(--text-muted);
-			  margin-bottom: 0.4rem;
-			}
-
-			.strip-title span {
-			  font-weight: 400;
-			  color: var(--text-dim);
-			  margin-left: 0.4rem;
-			}
-
-			.effort-strip {
-			  display: flex;
-			  gap: 2px;
-			  height: 16px;
-			  border-radius: 4px;
-			  overflow: hidden;
-			}
-
-			.effort-strip.strip-empty {
-			  height: auto;
-			  padding: 0.5rem 0.75rem;
-			  border: 1px dashed var(--border-color);
-			  font-size: 0.78rem;
-			  color: var(--text-dim);
-			}
-
-			.strip-seg {
-			  min-width: 3px;
-			  -webkit-print-color-adjust: exact;
-			  print-color-adjust: exact;
-			}
-
-			.strip-seg.strip-rest {
-			  background: transparent !important;
-			  border: 1px dashed var(--border-color);
-			}
-
-			.legend-row {
-			  display: flex;
-			  flex-wrap: wrap;
-			  gap: 0.25rem 0.9rem;
-			  margin-top: 0.5rem;
-			}
-
-			.legend-item {
-			  display: inline-flex;
-			  align-items: center;
-			  gap: 0.35rem;
-			  font-size: 0.72rem;
-			  color: var(--text-muted);
-			}
-
-			.legend-dot {
-			  width: 9px;
-			  height: 9px;
-			  border-radius: 50%;
-			  -webkit-print-color-adjust: exact;
-			  print-color-adjust: exact;
-			}
-
-			.block-stats {
-			  font-size: 0.8rem;
-			  color: var(--text-dim);
-			}
-
 			/* PRINT / EXPORT STYLING */
 			@media print {
 			  body {
 			    background: #fff !important;
 			    color: #000 !important;
 			  }
-			  header, nav.tabs-bar, .actions-area, .deck-controls, .card-creator, .icon-btn, .move-select, .tray-section {
+			  header, nav.tabs-bar, .actions-area, .deck-controls, .card-creator, .icon-btn {
 			    display: none !important;
 			  }
 			  main.workspace {
@@ -687,12 +437,12 @@
 			    page-break-after: always;
 			    margin-bottom: 2rem;
 			  }
-			  .timeline-block, .idea-card, .input-field, .textarea-field, .summary-tile {
+			  .timeline-block, .idea-card, .input-field, .textarea-field {
 			    background: #fff !important;
 			    color: #000 !important;
 			    border: 1px solid #ccc !important;
 			  }
-			  .section-title, .phase-title, .card-title, .tile-value, .tile-sub, .tile-label, .block-stats, .diff-label {
+			  .section-title, .phase-title, .card-title {
 			    color: #000 !important;
 			  }
 			}
@@ -725,7 +475,6 @@
 				/>
 			</div>
 			<div class="actions-area">
-				<span id="saveStatus" class="save-status" aria-live="polite"></span>
 				<label class="btn">
 					<svg
 						width="16"
@@ -783,7 +532,7 @@
 
 		<!-- NAVIGATION TABS -->
 		<nav class="tabs-bar">
-			<button class="tab-btn active" data-tab="track">
+			<button class="tab-btn active" onclick="switchTab('track')">
 				<svg
 					width="16"
 					height="16"
@@ -793,12 +542,12 @@
 					stroke-width="2"
 				>
 					<path
-						d="M9 18V5l12-2v13M9 18zm0 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm12-2a3 3 0 1 0-6 0 3 3 0 0 0 6 0z"
+						d="M9 18V5l12-2v13B9 18zm0 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm12-2a3 3 0 1 0-6 0 3 3 0 0 0 6 0z"
 					/>
 				</svg>
 				Track & Hooks
 			</button>
-			<button class="tab-btn" data-tab="aesthetic">
+			<button class="tab-btn" onclick="switchTab('aesthetic')">
 				<svg
 					width="16"
 					height="16"
@@ -811,7 +560,7 @@
 				</svg>
 				Aesthetic & Vibe
 			</button>
-			<button class="tab-btn" data-tab="deck">
+			<button class="tab-btn" onclick="switchTab('deck')">
 				<svg
 					width="16"
 					height="16"
@@ -825,7 +574,7 @@
 				</svg>
 				The Idea Deck
 			</button>
-			<button class="tab-btn" data-tab="timeline">
+			<button class="tab-btn" onclick="switchTab('timeline')">
 				<svg
 					width="16"
 					height="16"
@@ -981,27 +730,6 @@
 							<option value="Dynamic Drop">Dynamic Drop</option>
 						</select>
 					</div>
-					<div class="grid-2" style="margin-bottom:0;">
-						<div class="form-group">
-							<label for="newCardDuration">Duration (mm:ss)</label>
-							<input
-								type="text"
-								id="newCardDuration"
-								class="input-field"
-								placeholder="e.g. 00:15"
-							/>
-						</div>
-						<div class="form-group">
-							<label for="newCardDifficulty">Difficulty</label>
-							<select id="newCardDifficulty" class="select-field">
-								<option value="1">1 – Easy</option>
-								<option value="2">2 – Moderate</option>
-								<option value="3" selected>3 – Challenging</option>
-								<option value="4">4 – Hard</option>
-								<option value="5">5 – Max effort</option>
-							</select>
-						</div>
-					</div>
 					<textarea
 						id="newCardBody"
 						class="textarea-field"
@@ -1025,9 +753,7 @@
 					id="ideaPool"
 					class="cards-grid"
 					ondragover="allowDrop(event)"
-					ondragenter="dragEnter(event)"
-				ondragleave="dragLeave(event)"
-				ondrop="dropToPool(event)"
+					ondrop="dropToPool(event)"
 				>
 					<!-- Cards dynamically inserted here -->
 				</div>
@@ -1038,24 +764,9 @@
 				<div class="section-header">
 					<h2 class="section-title">Sequence Map</h2>
 					<p class="section-desc">
-						Drag cards into performance blocks and reorder them. Start times are calculated from each card's duration.
+						Drag card ideas directly into performance blocks and
+						assign timecodes.
 					</p>
-				</div>
-
-				<div id="routineSummary" class="routine-summary"></div>
-
-				<div class="tray-section">
-					<div style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.5rem;">
-						Unplaced Ideas (<span id="trayCount">0</span>) &mdash; drag a card into a block below
-					</div>
-					<div
-						id="timelinePool"
-						class="pool-tray"
-						ondragover="allowDrop(event)"
-						ondragenter="dragEnter(event)"
-						ondragleave="dragLeave(event)"
-						ondrop="dropToPool(event)"
-					></div>
 				</div>
 
 				<div class="timeline-container">
@@ -1065,7 +776,10 @@
 							<span class="phase-title"
 								>1. Introduction & Mounting</span
 							>
-							<span class="block-stats" data-zone="intro"></span>
+							<span
+								style="font-size:0.8rem; color:var(--text-dim);"
+								>~ 00:00 - 00:45</span
+							>
 						</div>
 						<div
 							class="drop-zone"
@@ -1083,7 +797,10 @@
 							<span class="phase-title"
 								>2. Main Ascend & Development</span
 							>
-							<span class="block-stats" data-zone="build"></span>
+							<span
+								style="font-size:0.8rem; color:var(--text-dim);"
+								>~ 00:45 - 02:00</span
+							>
 						</div>
 						<div
 							class="drop-zone"
@@ -1101,7 +818,10 @@
 							<span class="phase-title"
 								>3. Climax & Dynamic Hits</span
 							>
-							<span class="block-stats" data-zone="climax"></span>
+							<span
+								style="font-size:0.8rem; color:var(--text-dim);"
+								>~ 02:00 - 03:00</span
+							>
 						</div>
 						<div
 							class="drop-zone"
@@ -1119,7 +839,10 @@
 							<span class="phase-title"
 								>4. Descent & Landing / Outro</span
 							>
-							<span class="block-stats" data-zone="outro"></span>
+							<span
+								style="font-size:0.8rem; color:var(--text-dim);"
+								>~ 03:00 +</span
+							>
 						</div>
 						<div
 							class="drop-zone"
@@ -1136,134 +859,35 @@
 
 		<script>
 			// APP STATE
-			// Each card has: duration (seconds) and difficulty (1-5, 0 = unrated).
-			// Start times are NOT stored; they're calculated from card order + durations.
 			let projectData = {
 			  title: "Untitled Routine",
 			  track: { title: "", artist: "", duration: "", setup: "", spark: "" },
 			  aesthetic: { texture: "", arms: "", costume: "", visual: "" },
 			  cards: [
-			    { id: "c1", title: "Low-Flow Opening", category: "Floorwork", body: "Start seated under rig, slow wrist circles", zone: "intro", duration: 20, difficulty: 1 },
-			    { id: "c2", title: "Inverted Straddle Climb", category: "Transition", body: "Straight leg invert into inversion climb", zone: "build", duration: 25, difficulty: 3 },
-			    { id: "c3", title: "High Velocity Spin", category: "Dynamic Drop", body: "Release into continuous fast rotation", zone: "climax", duration: 15, difficulty: 4 }
+			    { id: "c1", title: "Low-Flow Opening", category: "Floorwork", body: "Start seated under rig, slow wrist circles", zone: "intro", time: "00:10" },
+			    { id: "c2", title: "Inverted Straddle Climb", category: "Transition", body: "Straight leg invert into inversion climb", zone: "build", time: "00:50" },
+			    { id: "c3", title: "High Velocity Spin", category: "Dynamic Drop", body: "Release into continuous fast rotation", zone: "climax", time: "02:15" }
 			  ]
 			};
 
-			const TIMELINE_ZONES = ["intro", "build", "climax", "outro"];
-			const ZONE_LABELS = {
-			  pool: "Card Pool",
-			  intro: "1. Introduction",
-			  build: "2. Main Ascend",
-			  climax: "3. Climax",
-			  outro: "4. Descent / Outro"
-			};
-
-			const DIFFICULTY = {
-			  1: { label: "Easy", color: "#22c55e" },
-			  2: { label: "Moderate", color: "#84cc16" },
-			  3: { label: "Challenging", color: "#f59e0b" },
-			  4: { label: "Hard", color: "#f97316" },
-			  5: { label: "Max effort", color: "#ef4444" }
-			};
-			const UNRATED_COLOR = "#4b5563";
-			const HARD_THRESHOLD = 4; // difficulty >= this counts toward "hard stretch"
-
 			// INITIALIZATION
 			document.addEventListener("DOMContentLoaded", () => {
-			  const restored = loadLocal();
-			  if (!restored) projectData.cards = projectData.cards.map(normalizeCard);
-			  setupTabs();
 			  renderCards();
 			  setupAutoSave();
-			  initSaveStatus(restored);
 			});
 
-			// TIME HELPERS
-			// Accepts "mm:ss", "h:mm:ss", or plain seconds. Blank = 0. Invalid = NaN.
-			function parseDuration(str) {
-			  const s = String(str ?? "").trim();
-			  if (s === "") return 0;
-			  if (/^\d+$/.test(s)) return parseInt(s, 10);
-			  let m = s.match(/^(\d+):([0-5]?\d)$/);
-			  if (m) return parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
-			  m = s.match(/^(\d+):([0-5]?\d):([0-5]?\d)$/);
-			  if (m) return parseInt(m[1], 10) * 3600 + parseInt(m[2], 10) * 60 + parseInt(m[3], 10);
-			  return NaN;
-			}
-
-			function formatDuration(sec) {
-			  sec = Math.max(0, Math.round(sec));
-			  return String(Math.floor(sec / 60)).padStart(2, "0") + ":" + String(sec % 60).padStart(2, "0");
-			}
-
-			// Older saved files have no duration/difficulty (and an old "time" field); tidy them up
-			function normalizeCard(card) {
-			  const { time, ...rest } = card;
-			  const duration = Number(rest.duration);
-			  const difficulty = Math.round(Number(rest.difficulty));
-			  return {
-			    ...rest,
-			    duration: Number.isFinite(duration) && duration > 0 ? Math.round(duration) : 0,
-			    difficulty: difficulty >= 1 && difficulty <= 5 ? difficulty : 0
-			  };
-			}
-
 			// TAB SWITCHING
-			function setupTabs() {
-			  document.querySelectorAll(".tab-btn").forEach(btn => {
-			    btn.addEventListener("click", () => switchTab(btn.dataset.tab));
-			  });
-			}
-
 			function switchTab(tabId) {
-			  document.querySelectorAll(".tab-btn").forEach(btn => {
-			    btn.classList.toggle("active", btn.dataset.tab === tabId);
-			  });
-			  document.querySelectorAll(".tab-content").forEach(content => {
-			    content.classList.toggle("active", content.id === `tab-${tabId}`);
-			  });
+			  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+			  document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+			  event.currentTarget.classList.add('active');
+			  document.getElementById(`tab-${tabId}`).classList.add('active');
 			}
 
-			// ROUTINE TIMELINE (calculated, never stored)
-			// Walks intro -> build -> climax -> outro, cards in their on-screen order.
-			function orderedTimeline() {
-			  let t = 0;
-			  const rows = [];
-			  TIMELINE_ZONES.forEach(zone => {
-			    projectData.cards.filter(c => c.zone === zone).forEach(card => {
-			      rows.push({ card, zone, start: t, end: t + card.duration });
-			      t += card.duration;
-			    });
-			  });
-			  return rows;
-			}
-
-			// Time-weighted average difficulty of rated cards (null if none are rated)
-			function averageDifficulty(cards) {
-			  const rated = cards.filter(c => c.difficulty > 0);
-			  if (!rated.length) return null;
-			  const dur = rated.reduce((s, c) => s + c.duration, 0);
-			  return dur > 0
-			    ? rated.reduce((s, c) => s + c.difficulty * c.duration, 0) / dur
-			    : rated.reduce((s, c) => s + c.difficulty, 0) / rated.length;
-			}
-
-			function difficultyLabel(avg) {
-			  return DIFFICULTY[Math.min(5, Math.max(1, Math.round(avg)))].label;
-			}
-
-			function difficultyColor(avg) {
-			  return DIFFICULTY[Math.min(5, Math.max(1, Math.round(avg)))].color;
-			}
-
-			// RENDER CARDS IN POOL(S) AND TIMELINE
+			// RENDER CARDS IN POOL AND TIMELINE
 			function renderCards() {
-			  // Unplaced cards show in the Idea Deck pool AND the Sequence Map tray,
-			  // so they can be dragged into a block without switching tabs.
-			  const pools = [
-			    document.getElementById("ideaPool"),
-			    document.getElementById("timelinePool")
-			  ];
+			  const poolContainer = document.getElementById("ideaPool");
 			  const zones = {
 			    intro: document.getElementById("zone-intro"),
 			    build: document.getElementById("zone-build"),
@@ -1271,354 +895,123 @@
 			    outro: document.getElementById("zone-outro")
 			  };
 
-			  pools.forEach(p => (p.innerHTML = ""));
-			  Object.values(zones).forEach(z => (z.innerHTML = ""));
-
-			  const startById = {};
-			  orderedTimeline().forEach(r => (startById[r.card.id] = r.start));
+			  // Clear zones
+			  poolContainer.innerHTML = "";
+			  Object.values(zones).forEach(z => z.innerHTML = "");
 
 			  let poolCount = 0;
 
 			  projectData.cards.forEach(card => {
-			    if (TIMELINE_ZONES.includes(card.zone)) {
-			      zones[card.zone].appendChild(createCardElement(card, startById[card.id]));
-			    } else {
-			      // No zone, "pool", or an unknown zone name -> goes to the pool
-			      pools.forEach(p => p.appendChild(createCardElement(card, null)));
+			    const cardEl = createCardElement(card);
+			    if (!card.zone || card.zone === "pool") {
+			      poolContainer.appendChild(cardEl);
 			      poolCount++;
+			    } else if (zones[card.zone]) {
+			      zones[card.zone].appendChild(cardEl);
 			    }
 			  });
 
 			  document.getElementById("cardCount").innerText = poolCount;
-			  document.getElementById("trayCount").innerText = poolCount;
-			  renderSummary();
 			}
 
-			function createCardElement(card, startAt) {
-			  const el = document.createElement("div");
-			  el.className = "idea-card";
-			  el.draggable = true;
-			  el.dataset.cardId = card.id;
+			function createCardElement(card) {
+			  const cardDiv = document.createElement("div");
+			  cardDiv.className = "idea-card";
+			  cardDiv.draggable = true;
+			  cardDiv.id = `card-${card.id}`;
+			  cardDiv.ondragstart = (e) => dragStart(e, card.id);
 
-			  const isTimeline = TIMELINE_ZONES.includes(card.zone);
-			  const currentZone = isTimeline ? card.zone : "pool";
-			  const moveOptions = Object.entries(ZONE_LABELS)
-			    .filter(([key]) => key !== currentZone)
-			    .map(([key, label]) => `<option value="${key}">${label}</option>`)
-			    .join("");
+			  const isTimeline = card.zone && card.zone !== "pool";
 
-			  const dots = [1, 2, 3, 4, 5].map(n => {
-			    const on = n <= card.difficulty;
-			    const style = on ? `style="background:${DIFFICULTY[card.difficulty].color}"` : "";
-			    return `<button type="button" class="diff-dot${on ? " on" : ""}" data-level="${n}" ${style} title="${n} – ${DIFFICULTY[n].label}" aria-label="Set difficulty ${n}: ${DIFFICULTY[n].label}"></button>`;
-			  }).join("");
-			  const diffLabel = card.difficulty ? DIFFICULTY[card.difficulty].label : "Unrated";
-
-			  el.innerHTML = `
+			  cardDiv.innerHTML = `
 			    <div class="card-header-line">
 			      <span class="card-category">${escapeHtml(card.category)}</span>
-			      <div class="card-time">
-			        ${isTimeline ? `<span class="card-start" title="Start time in the routine">@ ${formatDuration(startAt || 0)}</span>` : ""}
-			        <input type="text" class="timestamp-input duration-input" value="${card.duration ? formatDuration(card.duration) : ""}" placeholder="00:00" title="Duration (mm:ss)" aria-label="Card duration (mm:ss)">
-			      </div>
+			      ${isTimeline ? `<input type="text" class="timestamp-input" value="${escapeHtml(card.time \vert{}\vert{} '00:00')}" placeholder="00:00" onchange="updateCardTime('${card.id}', this.value)">` : ''}
 			    </div>
 			    <div class="card-title">${escapeHtml(card.title)}</div>
-			    ${card.body ? `<div class="card-body">${escapeHtml(card.body)}</div>` : ""}
-			    <div class="diff-row">
-			      <div class="diff-dots" role="group" aria-label="Difficulty">${dots}</div>
-			      <span class="diff-label">${diffLabel}</span>
-			    </div>
+			    ${card.body ? `<div class="card-body">${escapeHtml(card.body)}</div>` : ''}
 			    <div class="card-actions">
-			      <select class="move-select" aria-label="Move card to">
-			        <option value="" selected disabled>Move to…</option>
-			        ${moveOptions}
-			      </select>
-			      <button class="icon-btn" type="button" aria-label="Delete card">
+			      <button class="icon-btn" onclick="deleteCard('${card.id}')">
 			        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
 			      </button>
 			    </div>
 			  `;
 
-			  // Drag events
-			  el.addEventListener("dragstart", (e) => dragStart(e, card.id));
-			  el.addEventListener("dragend", () => {
-			    el.classList.remove("dragging");
-			    clearDragOver();
-			  });
-
-			  // Buttons / inputs inside the card
-			  el.querySelector(".icon-btn").addEventListener("click", () => deleteCard(card.id));
-
-			  const moveSelect = el.querySelector(".move-select");
-			  moveSelect.addEventListener("change", () => moveCard(card.id, moveSelect.value));
-
-			  el.querySelectorAll(".diff-dot").forEach(dot => {
-			    dot.addEventListener("click", () => updateCardDifficulty(card.id, parseInt(dot.dataset.level, 10)));
-			  });
-
-			  const durInput = el.querySelector(".duration-input");
-			  durInput.addEventListener("change", () => {
-			    const secs = parseDuration(durInput.value);
-			    if (Number.isNaN(secs)) {
-			      durInput.value = card.duration ? formatDuration(card.duration) : "";
-			      flagInvalid(durInput);
-			      return;
-			    }
-			    updateCardDuration(card.id, secs);
-			  });
-
-			  // A draggable parent can stop text inputs/selects from being clickable
-			  // (Firefox especially), so turn dragging off while one has focus.
-			  el.querySelectorAll("input, select").forEach(field => {
-			    field.addEventListener("focus", () => (el.draggable = false));
-			    field.addEventListener("blur", () => (el.draggable = true));
-			  });
-
-			  return el;
-			}
-
-			// SEQUENCE MAP SUMMARY (totals, effort map, per-block stats)
-			function renderSummary() {
-			  const rows = orderedTimeline();
-			  const total = rows.reduce((s, r) => s + r.card.duration, 0);
-			  const avg = averageDifficulty(rows.map(r => r.card));
-
-			  const trackSecs = parseDuration(document.getElementById("songDuration").value);
-			  const hasTrack = Number.isFinite(trackSecs) && trackSecs > 0;
-
-			  // Longest run of consecutive hard cards (no easy moment to recover)
-			  let run = 0, maxRun = 0;
-			  rows.forEach(r => {
-			    if (r.card.difficulty >= HARD_THRESHOLD) {
-			      run += r.card.duration;
-			      maxRun = Math.max(maxRun, run);
-			    } else {
-			      run = 0;
-			    }
-			  });
-
-			  // Tile: runtime vs. track length
-			  let vsValue = "—", vsSub = "Set Duration on the Track tab", vsColor = "";
-			  if (hasTrack) {
-			    const diff = total - trackSecs;
-			    vsSub = `Track is ${formatDuration(trackSecs)}`;
-			    if (total === 0) { vsValue = "—"; vsSub = `Track is ${formatDuration(trackSecs)} · nothing placed yet`; }
-			    else if (diff === 0) { vsValue = "On the mark"; vsColor = "#22c55e"; }
-			    else if (diff < 0) { vsValue = `${formatDuration(-diff)} under`; }
-			    else { vsValue = `${formatDuration(diff)} over`; vsColor = "#ef4444"; }
-			  }
-
-			  // Effort map strip: width = time, color = difficulty
-			  let strip;
-			  if (total > 0) {
-			    const segs = rows.filter(r => r.card.duration > 0).map(r => {
-			      const color = r.card.difficulty ? DIFFICULTY[r.card.difficulty].color : UNRATED_COLOR;
-			      const dLabel = r.card.difficulty ? DIFFICULTY[r.card.difficulty].label : "Unrated";
-			      const tip = `${r.card.title} · ${formatDuration(r.start)}–${formatDuration(r.end)} · ${dLabel}`;
-			      return `<div class="strip-seg" style="flex:${r.card.duration}; background:${color}" title="${escapeHtml(tip)}"></div>`;
-			    });
-			    if (hasTrack && trackSecs > total) {
-			      segs.push(`<div class="strip-seg strip-rest" style="flex:${trackSecs - total}" title="Unfilled track time"></div>`);
-			    }
-			    strip = `<div class="effort-strip">${segs.join("")}</div>`;
-			  } else {
-			    strip = `<div class="effort-strip strip-empty">Give cards a duration and place them in blocks to see the effort map</div>`;
-			  }
-
-			  const legend = [1, 2, 3, 4, 5].map(n =>
-			    `<span class="legend-item"><span class="legend-dot" style="background:${DIFFICULTY[n].color}"></span>${n} ${DIFFICULTY[n].label}</span>`
-			  ).join("");
-
-			  document.getElementById("routineSummary").innerHTML = `
-			    <div class="summary-grid">
-			      <div class="summary-tile">
-			        <div class="tile-label">Total runtime</div>
-			        <div class="tile-value">${formatDuration(total)}</div>
-			        <div class="tile-sub">${rows.length} card${rows.length === 1 ? "" : "s"} placed</div>
-			      </div>
-			      <div class="summary-tile">
-			        <div class="tile-label">vs. Track length</div>
-			        <div class="tile-value" ${vsColor ? `style="color:${vsColor}"` : ""}>${vsValue}</div>
-			        <div class="tile-sub">${vsSub}</div>
-			      </div>
-			      <div class="summary-tile">
-			        <div class="tile-label">Avg difficulty</div>
-			        <div class="tile-value" ${avg !== null ? `style="color:${difficultyColor(avg)}"` : ""}>${avg !== null ? avg.toFixed(1) + " / 5" : "—"}</div>
-			        <div class="tile-sub">${avg !== null ? difficultyLabel(avg) + " · weighted by time" : "No rated cards placed"}</div>
-			      </div>
-			      <div class="summary-tile">
-			        <div class="tile-label">Longest hard stretch</div>
-			        <div class="tile-value">${maxRun > 0 ? formatDuration(maxRun) : "—"}</div>
-			        <div class="tile-sub">${maxRun > 0 ? "back-to-back difficulty 4–5" : "No back-to-back hard cards"}</div>
-			      </div>
-			    </div>
-			    <div class="strip-wrap">
-			      <div class="strip-title">Effort map <span>width = time, color = difficulty</span></div>
-			      ${strip}
-			      <div class="legend-row">${legend}<span class="legend-item"><span class="legend-dot" style="background:${UNRATED_COLOR}"></span>Unrated</span></div>
-			    </div>
-			  `;
-
-			  // Per-block stats in each block header
-			  TIMELINE_ZONES.forEach(zone => {
-			    const el = document.querySelector(`.block-stats[data-zone="${zone}"]`);
-			    if (!el) return;
-			    const zr = rows.filter(r => r.zone === zone);
-			    if (!zr.length) { el.textContent = "Empty"; return; }
-			    const zAvg = averageDifficulty(zr.map(r => r.card));
-			    el.innerHTML = `${formatDuration(zr[0].start)} – ${formatDuration(zr[zr.length - 1].end)}` +
-			      (zAvg !== null ? ` · <span style="color:${difficultyColor(zAvg)}">avg ${zAvg.toFixed(1)}</span>` : "");
-			  });
+			  return cardDiv;
 			}
 
 			// DRAG AND DROP HANDLERS
 			function dragStart(e, cardId) {
 			  e.dataTransfer.setData("text/plain", cardId);
-			  e.dataTransfer.effectAllowed = "move";
-			  e.currentTarget.classList.add("dragging");
 			}
 
-			// Where in a block would a dropped card land? (based on pointer height)
-			function getInsertTarget(zoneEl, clientY) {
-			  const cards = [...zoneEl.children].filter(c =>
-			    c.classList.contains("idea-card") && !c.classList.contains("dragging"));
-			  for (const c of cards) {
-			    const r = c.getBoundingClientRect();
-			    if (clientY < r.top + r.height / 2) return { before: c, after: null };
-			  }
-			  return { before: null, after: cards[cards.length - 1] || null };
-			}
-
-			function clearDropIndicators() {
-			  document.querySelectorAll(".drop-before, .drop-after").forEach(el => {
-			    el.classList.remove("drop-before", "drop-after");
-			  });
-			}
-
-			function showDropIndicator(zoneEl, clientY) {
-			  clearDropIndicators();
-			  const { before, after } = getInsertTarget(zoneEl, clientY);
-			  if (before) before.classList.add("drop-before");
-			  else if (after) after.classList.add("drop-after");
-			}
-
-			// dragover fires continuously while hovering, so it also keeps the highlight on
 			function allowDrop(e) {
 			  e.preventDefault();
-			  if (e.dataTransfer) e.dataTransfer.dropEffect = "move";
-			  e.currentTarget.classList.add("drag-over");
-			  if (e.currentTarget.classList.contains("drop-zone")) {
-			    showDropIndicator(e.currentTarget, e.clientY);
-			  }
 			}
 
 			function dragEnter(e) {
-			  e.preventDefault();
 			  e.currentTarget.classList.add("drag-over");
-			  if (e.currentTarget.classList.contains("drop-zone")) {
-			    showDropIndicator(e.currentTarget, e.clientY);
-			  }
 			}
 
-			// dragleave also fires when moving onto a child card, so only clear the
-			// highlight if the pointer has actually left the zone's bounds
 			function dragLeave(e) {
-			  const r = e.currentTarget.getBoundingClientRect();
-			  const outside = e.clientX <= r.left || e.clientX >= r.right ||
-			                  e.clientY <= r.top || e.clientY >= r.bottom;
-			  if (outside) {
-			    e.currentTarget.classList.remove("drag-over");
-			    clearDropIndicators();
-			  }
-			}
-
-			function clearDragOver() {
-			  document.querySelectorAll(".drag-over").forEach(el => el.classList.remove("drag-over"));
-			  clearDropIndicators();
+			  e.currentTarget.classList.remove("drag-over");
 			}
 
 			function dropToZone(e, zoneName) {
 			  e.preventDefault();
-			  const { before } = getInsertTarget(e.currentTarget, e.clientY);
-			  const beforeId = before ? before.dataset.cardId : null;
-			  clearDragOver();
-			  moveCard(e.dataTransfer.getData("text/plain"), zoneName, beforeId);
+			  e.currentTarget.classList.remove("drag-over");
+			  const cardId = e.dataTransfer.getData("text/plain");
+
+			  const card = projectData.cards.find(c => c.id === cardId);
+			  if (card) {
+			    card.zone = zoneName;
+			    renderCards();
+			  }
 			}
 
 			function dropToPool(e) {
 			  e.preventDefault();
-			  clearDragOver();
-			  moveCard(e.dataTransfer.getData("text/plain"), "pool");
-			}
-
-			// Shared by drag-drop and the "Move to…" dropdown.
-			// beforeId = place the card just above that card; otherwise it goes to the end.
-			function moveCard(cardId, zoneName, beforeId = null) {
-			  const idx = projectData.cards.findIndex(c => c.id === cardId);
-			  if (idx < 0) return;
-			  const [card] = projectData.cards.splice(idx, 1);
-			  card.zone = zoneName;
-			  const beforeIdx = beforeId ? projectData.cards.findIndex(c => c.id === beforeId) : -1;
-			  if (beforeIdx >= 0) projectData.cards.splice(beforeIdx, 0, card);
-			  else projectData.cards.push(card);
-			  commitChanges();
+			  const cardId = e.dataTransfer.getData("text/plain");
+			  const card = projectData.cards.find(c => c.id === cardId);
+			  if (card) {
+			    card.zone = "pool";
+			    renderCards();
+			  }
 			}
 
 			// CARD CRUD
-			function flagInvalid(el) {
-			  el.classList.add("invalid");
-			  setTimeout(() => el.classList.remove("invalid"), 1500);
-			}
-
 			function addIdeaCard() {
-			  const titleEl = document.getElementById("newCardTitle");
-			  const durEl = document.getElementById("newCardDuration");
-			  const title = titleEl.value.trim();
+			  const title = document.getElementById("newCardTitle").value.trim();
 			  const category = document.getElementById("newCardCategory").value;
 			  const body = document.getElementById("newCardBody").value.trim();
-			  const difficulty = parseInt(document.getElementById("newCardDifficulty").value, 10);
 
-			  if (!title) { flagInvalid(titleEl); titleEl.focus(); return; }
+			  if (!title) return;
 
-			  const duration = parseDuration(durEl.value);
-			  if (Number.isNaN(duration)) { flagInvalid(durEl); durEl.focus(); return; }
-
-			  projectData.cards.push({
+			  const newCard = {
 			    id: "c_" + Date.now(),
 			    title,
 			    category,
 			    body,
 			    zone: "pool",
-			    duration,
-			    difficulty
-			  });
+			    time: ""
+			  };
 
-			  titleEl.value = "";
-			  durEl.value = "";
+			  projectData.cards.push(newCard);
+			  document.getElementById("newCardTitle").value = "";
 			  document.getElementById("newCardBody").value = "";
-			  document.getElementById("newCardDifficulty").value = "3";
-			  commitChanges();
+			  renderCards();
 			}
 
-			function updateCardDuration(cardId, seconds) {
+			function updateCardTime(cardId, timeValue) {
 			  const card = projectData.cards.find(c => c.id === cardId);
 			  if (card) {
-			    card.duration = seconds;
-			    commitChanges();
-			  }
-			}
-
-			function updateCardDifficulty(cardId, level) {
-			  const card = projectData.cards.find(c => c.id === cardId);
-			  if (card) {
-			    card.difficulty = level;
-			    commitChanges();
+			    card.time = timeValue;
 			  }
 			}
 
 			function deleteCard(cardId) {
 			  projectData.cards = projectData.cards.filter(c => c.id !== cardId);
-			  commitChanges();
+			  renderCards();
 			}
 
 			// SAVE & EXPORT / IMPORT
@@ -1639,88 +1032,6 @@
 			  };
 			}
 
-			// BROWSER STORAGE (autosave + restore)
-			const STORAGE_KEY = "aerialSketchbook.v1";
-
-			function storageAvailable() {
-			  try {
-			    const k = STORAGE_KEY + ".probe";
-			    localStorage.setItem(k, "1");
-			    localStorage.removeItem(k);
-			    return true;
-			  } catch (err) {
-			    return false;
-			  }
-			}
-
-			function setSaveStatus(state) {
-			  const el = document.getElementById("saveStatus");
-			  if (!el) return;
-			  el.classList.toggle("warn", state === "warn");
-			  el.title = "";
-			  if (state === "saved") {
-			    el.textContent = "✓ Saved " + new Date().toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
-			  } else if (state === "restored") {
-			    el.textContent = "✓ Restored your saved work";
-			  } else if (state === "on") {
-			    el.textContent = "Autosave on";
-			  } else {
-			    el.textContent = "⚠ Can't autosave in this browser. Use Export JSON to keep your work.";
-			    el.title = "This browser is blocking local storage (private mode or a restricted file viewer).";
-			  }
-			}
-
-			function initSaveStatus(restored) {
-			  if (!storageAvailable()) setSaveStatus("warn");
-			  else setSaveStatus(restored ? "restored" : "on");
-			}
-
-			function saveLocal() {
-			  syncFormData();
-			  try {
-			    localStorage.setItem(STORAGE_KEY, JSON.stringify(projectData));
-			    setSaveStatus("saved");
-			  } catch (err) {
-			    setSaveStatus("warn");
-			  }
-			}
-
-			// Returns true if saved work was found and loaded
-			function loadLocal() {
-			  try {
-			    const raw = localStorage.getItem(STORAGE_KEY);
-			    if (!raw) return false;
-			    const parsed = JSON.parse(raw);
-			    if (!parsed || typeof parsed !== "object") return false;
-			    parsed.cards = Array.isArray(parsed.cards) ? parsed.cards.map(normalizeCard) : [];
-			    projectData = parsed;
-			    applyProjectToForm();
-			    return true;
-			  } catch (err) {
-			    return false;
-			  }
-			}
-
-			function applyProjectToForm() {
-			  document.getElementById("routineTitle").value = projectData.title || "";
-			  document.getElementById("songTitle").value = projectData.track?.title || "";
-			  document.getElementById("songArtist").value = projectData.track?.artist || "";
-			  document.getElementById("songDuration").value = projectData.track?.duration || "";
-			  document.getElementById("apparatusSetup").value = projectData.track?.setup || "";
-			  document.getElementById("narrativeSpark").value = projectData.track?.spark || "";
-
-			  document.getElementById("movementTexture").value = projectData.aesthetic?.texture || "";
-			  document.getElementById("armStyling").value = projectData.aesthetic?.arms || "";
-			  document.getElementById("costumeNotes").value = projectData.aesthetic?.costume || "";
-			  document.getElementById("visualNotes").value = projectData.aesthetic?.visual || "";
-			}
-
-			// Re-draw the cards, then save
-			function commitChanges() {
-			  renderCards();
-			  saveLocal();
-			}
-
 			function exportProject() {
 			  syncFormData();
 			  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(projectData, null, 2));
@@ -1733,37 +1044,38 @@
 			}
 
 			function importProject(event) {
-			  const input = event.target;
-			  const file = input.files[0];
-			  if (!file) return;
 			  const fileReader = new FileReader();
 			  fileReader.onload = (e) => {
 			    try {
-			      const parsed = JSON.parse(e.target.result);
-			      parsed.cards = Array.isArray(parsed.cards) ? parsed.cards.map(normalizeCard) : [];
-			      projectData = parsed;
+			      projectData = JSON.parse(e.target.result);
+			      document.getElementById("routineTitle").value = projectData.title || "";
+			      document.getElementById("songTitle").value = projectData.track?.title || "";
+			      document.getElementById("songArtist").value = projectData.track?.artist || "";
+			      document.getElementById("songDuration").value = projectData.track?.duration || "";
+			      document.getElementById("apparatusSetup").value = projectData.track?.setup || "";
+			      document.getElementById("narrativeSpark").value = projectData.track?.spark || "";
 
-			      applyProjectToForm();
-			      commitChanges();
+			      document.getElementById("movementTexture").value = projectData.aesthetic?.texture || "";
+			      document.getElementById("armStyling").value = projectData.aesthetic?.arms || "";
+			      document.getElementById("costumeNotes").value = projectData.aesthetic?.costume || "";
+			      document.getElementById("visualNotes").value = projectData.aesthetic?.visual || "";
+
+			      renderCards();
 			    } catch (err) {
 			      alert("Error parsing JSON file.");
 			    }
-			    input.value = ""; // lets you re-import the same file again
 			  };
-			  fileReader.readAsText(file);
+			  if(event.target.files[0]) fileReader.readAsText(event.target.files[0]);
 			}
 
 			function setupAutoSave() {
 			  document.querySelectorAll("input, textarea").forEach(el => {
-			    el.addEventListener("input", () => {
-			      saveLocal();
-			      renderSummary(); // keeps "vs. Track length" live as the track Duration is typed
-			    });
+			    el.addEventListener("input", syncFormData);
 			  });
 			}
 
 			function escapeHtml(str) {
-			  return String(str ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+			  return (str || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 			}
 		</script>
 	</body>
